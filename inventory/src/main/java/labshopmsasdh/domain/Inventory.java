@@ -11,6 +11,7 @@ import java.util.Date;
 @Table(name="Inventory_table")
 @Data
 
+//<<< DDD / Aggregate Root
 public class Inventory  {
 
 
@@ -41,9 +42,12 @@ public class Inventory  {
 
 
 
-    public void decreaseStock(){
+//<<< Clean Arch / Port Method
+    public void decreaseStock(DecreaseStockCommand decreaseStockCommand){
     }
+//>>> Clean Arch / Port Method
 
 
 
 }
+//>>> DDD / Aggregate Root

@@ -12,6 +12,7 @@ import java.util.Date;
 @Table(name="Order_table")
 @Data
 
+//<<< DDD / Aggregate Root
 public class Order  {
 
 
@@ -55,6 +56,10 @@ public class Order  {
         //Following code causes dependency to external APIs
         // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
 
+        labshopmsasdh.external.DecreaseStockCommand decreaseStockCommand = new labshopmsasdh.external.DecreaseStockCommand();
+        // mappings goes here
+        MonolithApplication.applicationContext.getBean(labshopmsasdh.external.InventoryService.class)
+            .decreaseStock(/* get???(), */ decreaseStockCommand);
 
 
 
@@ -77,3 +82,4 @@ public class Order  {
 
 
 }
+//>>> DDD / Aggregate Root
